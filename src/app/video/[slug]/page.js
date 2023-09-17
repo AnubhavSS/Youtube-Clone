@@ -24,14 +24,17 @@ if(!videoDetails?.snippet) return <div className="loading-container"><div classN
     const {snippet:{title,channelId,channelTitle,description,publishedAt,tags},statistics: {viewCount,likeCount} }=videoDetails
    
     const utcDate = new Date(publishedAt);
-    const localDate = utcDate.toLocaleString(); 
+    const localDate = utcDate.toLocaleString();
+    
+
+
     return (
     <Box minHeight={'95vh'}   sx={{backgroundColor:'#000'}} >
        <Stack direction={{xs:'column',md:'row'}}>
 <Box flex={1}>
 <Box sx={{width:'100%',top:'86px'}}>
   
-<ReactPlayer width={'100%'} height={'77vh'} url={`https://www.youtube.com/watch?v=${id}`} controls /> 
+<ReactPlayer width={'100%'} height={'77vh'} url={`https://www.youtube.com/watch?v=${id}`} controls playing pip={true} /> 
 <Typography variant='h5' color={'#fff'} fontWeight={'bold'} p={2}>
     {title}
 </Typography>
@@ -71,7 +74,8 @@ if(!videoDetails?.snippet) return <div className="loading-container"><div classN
 </Box>
 </Box>
 <Box px={2} py={{md:1,xs:5}} alignItems={'center'} justifyContent={'center'}>
-{/* <Videos videos={videos} direction={column}/> */}
+
+<Videos videos={videos} direction="column"/>
 </Box>
        </Stack>
 
